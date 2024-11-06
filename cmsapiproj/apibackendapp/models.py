@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 from django.db import models
 
@@ -151,3 +150,18 @@ class LabTestPrescription(models.Model):
     Remarks = models.TextField()
     AppointmentId = models.ForeignKey(Appointment, on_delete=models.CASCADE)
     IsActive = models.BooleanField(default=True)
+
+# class Bill(models.Model):
+#     AppointmentId = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+#     BillId = models.AutoField(primary_key=True)
+#     amount = models.DecimalField(decimal_places=2, max_digits=8)
+#     description = models.CharField(max_length=500)
+
+class Bill(models.Model):
+    AppointmentId = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+    BillId = models.AutoField(primary_key=True)
+    amount = models.DecimalField(decimal_places=2, max_digits=8)
+    description = models.CharField(max_length=500)
+
+
+
